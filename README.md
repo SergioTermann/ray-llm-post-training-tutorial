@@ -1,5 +1,7 @@
 # Ray LLM 后训练 Notebook（中文）
 
+[English README](README.en.md) · [English-only Notebook](ray_llm_post_training_tutorial_en.ipynb)
+
 打开 `ray_llm_post_training_tutorial.ipynb`，从上往下阅读和运行。
 
 ## 启动
