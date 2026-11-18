@@ -4,7 +4,7 @@
 
 打开 `ray_llm_post_training_tutorial.ipynb`，从上往下阅读和运行。
 
-中文版现包含 **43 个单元**，已与英文版同步 vLLM、SGLang 和 GRPO 集成章节；说明、代码注释、示例提示词和运行提示均提供中文。
+中文版现包含 **58 个单元**，已与英文版同步 vLLM、SGLang 和 GRPO 集成章节；说明、代码注释、示例提示词和运行提示均提供中文。
 
 ## 启动
 
@@ -34,6 +34,10 @@ jupyter lab ray_llm_post_training_tutorial.ipynb
 10. 理解策略版本、token log-prob、权重同步、缓存失效和 GPU 资源放置。
 
 ## 可选推理实验
+
+第 19–27 节新增进阶学习：数据泄漏审计、SFT assistant-label 检查、DPO 损失与梯度、配对评估、分布式性能诊断、恢复验收、实验 manifest 和毕业项目。详见[教程审视记录](CURRICULUM_REVIEW.md)。
+
+请克隆完整仓库并从根目录启动 Notebook；新增单元依赖 `labs/posttrain_checks.py`。运行 `python labs/posttrain_checks.py` 即可执行无需 GPU 或模型下载的 CPU 正确性检查。已实际运行通过，但不代表真实 LLM 训练成功。实验清单写入已忽略的本地 `artifacts/` 目录。
 
 第 12–18 节提供服务启动命令、统一客户端、vLLM 离线生成、并发测量及 Ray rollout 示例。`RUN_INFERENCE`、`RUN_OFFLINE_VLLM`、`RUN_BENCHMARK`、`RUN_RAY_ROLLOUT` 默认均为 `False`，准备好环境后再开启。
 

@@ -35,7 +35,7 @@ Native Windows is suitable for reading the notebook; use Linux or WSL2 for the G
 
 ## Optional inference labs
 
-Sections 12–18 include server launch instructions, a shared chat client, an offline vLLM example, a small concurrency benchmark, and Ray tasks that generate and score rollout answers. The notebook now contains 43 cells. All GPU and request examples are opt-in: `RUN_INFERENCE`, `RUN_OFFLINE_VLLM`, `RUN_BENCHMARK`, and `RUN_RAY_ROLLOUT` default to `False`.
+Sections 12–18 include server launch instructions, a shared chat client, an offline vLLM example, a small concurrency benchmark, and Ray tasks that generate and score rollout answers. The notebook now contains 58 cells. All GPU and request examples are opt-in: `RUN_INFERENCE`, `RUN_OFFLINE_VLLM`, `RUN_BENCHMARK`, and `RUN_RAY_ROLLOUT` default to `False`.
 
 Install the lightweight `openai` client in the notebook kernel if needed. Install each serving engine in its own environment using its current official installation guide, rather than adding both engines to the pinned SFT environment. Run only one GPU workload at a time unless resources are explicitly partitioned. The serving examples use the base model, not the SFT adapter.
 
@@ -44,6 +44,10 @@ The Ray HTTP tasks schedule client requests; they do not reserve or manage the e
 All explanations, comments, example prompts, dataset answers, and status messages in the English notebook are in English. The model is `Qwen/Qwen2.5-0.5B-Instruct`, chosen for a manageable learning example rather than recency. The tiny synthetic dataset is not suitable for measuring model quality. DPO and GRPO sections explain interfaces and concepts; they do not launch complete preference-optimization runs.
 
 ## Versions and validation
+
+Sections 19–27 add an advanced curriculum: leakage audits, assistant-label correctness, a differentiable toy DPO update, paired evaluation, distributed performance diagnosis, checkpoint recovery acceptance criteria, experiment manifests, and a capstone. Clone the full repository and start Jupyter from its root; these cells import `labs/posttrain_checks.py`.
+
+Run `python labs/posttrain_checks.py` for dependency-free CPU checks. These checks and the new CPU notebook cells have been executed, including finite-difference verification of the toy DPO gradient. They do not validate real LLM training. Local manifests are written to the ignored `artifacts/` directory. The earlier SFT loop still uses full-sequence loss; the new mask lesson specifies how to validate an assistant-only replacement without claiming template compatibility.
 
 On November 17, 2026, PyPI and Ray's official latest documentation reported **Ray 2.60.0**. The Hugging Face integration was also checked against source code at the `ray-2.60.0` tag.
 
